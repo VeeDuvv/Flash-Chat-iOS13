@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+ 
+        IQKeyboardManager.shared.enable = true // activate the keyboard which moves the table view upwards
+        IQKeyboardManager.shared.enableAutoToolbar = false // hides the auto tool bar above the keyboard
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = false // hides the keyboard when user clicks outside the keyboard
+        
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        print(db)
+        
         return true
+        
     }
 
     // MARK: UISceneSession Lifecycle
