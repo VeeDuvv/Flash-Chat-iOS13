@@ -35,6 +35,9 @@ class ChatViewController: UIViewController {
         
     }
     
+    
+// This is a useless comment to make sure my git ignore file is working
+    
     func loadMessages() {
         
         db.collection(K.FStore.collectionName).order(by: K.FStore.dateField).addSnapshotListener {(querySnapshot, error) in
